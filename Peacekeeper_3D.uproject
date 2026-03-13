@@ -55,6 +55,10 @@
 				"Android",
 				"HoloLens"
 			]
+		},
+		{
+			"Name": "GameplayAbilities",
+			"Enabled": true
 		}
 	]
 }
