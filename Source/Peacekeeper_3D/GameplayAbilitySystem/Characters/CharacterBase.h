@@ -8,7 +8,7 @@
 #include "CharacterBase.generated.h"
 
 UCLASS()
-class PEACEKEEPER_3D_API ACharacterBase : public ACharacter, IAbilitySystemInterface
+class PEACEKEEPER_3D_API ACharacterBase : public ACharacter, public IAbilitySystemInterface
 {
 	GENERATED_BODY()
 
@@ -40,5 +40,5 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 	
-	virtual class UAbilitySystemComponent* GetAbilitySystemComponent() const override;
+	virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
 };

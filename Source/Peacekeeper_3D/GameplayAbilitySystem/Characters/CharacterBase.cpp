@@ -55,3 +55,8 @@ void ACharacterBase::OnRep_PlayerState()
 		AbilitySystemComponent->RefreshAbilityActorInfo();
 	}
 }
+
+UAbilitySystemComponent* ACharacterBase::GetAbilitySystemComponent() const
+{
+	return AbilitySystemComponent;
+}
