@@ -36,3 +36,22 @@ void ACharacterBase::SetupPlayerInputComponent(UInputComponent* PlayerInputCompo
 
 }
 
+void ACharacterBase::PossessedBy(AController* NewController)
+{
+	Super::PossessedBy(NewController);
+	
+	if (AbilitySystemComponent)
+	{
+		AbilitySystemComponent->RefreshAbilityActorInfo();
+	}
+}
+
+void ACharacterBase::OnRep_PlayerState()
+{
+	Super::OnRep_PlayerState();
+	
+	if (AbilitySystemComponent)
+	{
+		AbilitySystemComponent->RefreshAbilityActorInfo();
+	}
+}
