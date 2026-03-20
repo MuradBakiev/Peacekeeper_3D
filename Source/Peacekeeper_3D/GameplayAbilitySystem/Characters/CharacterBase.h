@@ -1,0 +1,40 @@
+
+#pragma once
+
+#include "CoreMinimal.h"
+#include "GameFramework/Character.h"
+#include "AbilitySystemInterface.h"
+#include "AbilitySystemComponent.h"
+#include "CharacterBase.generated.h"
+
+UCLASS()
+class PEACEKEEPER_3D_API ACharacterBase : public ACharacter, IAbilitySystemInterface
+{
+	GENERATED_BODY()
+
+public:
+	// Sets default values for this character's properties
+	ACharacterBase();
+	
+	//Ability System Component
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Ability System")
+	class UAbilitySystemComponent* AbilitySystemComponent;
+
+	
+protected:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Ability System")
+	EGameplayEffectReplicationMode AscReplicationMode  = EGameplayEffectReplicationMode::Mixed;
+	
+protected:
+	// Called when the game starts or when spawned
+	virtual void BeginPlay() override;
+
+public:	
+	// Called every frame
+	virtual void Tick(float DeltaTime) override;
+
+	// Called to bind functionality to input
+	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+	
+	virtual class UAbilitySystemComponent* GetAbilitySystemComponent() const override;
+};
